@@ -61,14 +61,14 @@ const services = [
 ];
 
 const technologies = [
-  // {
-  //   name: "HTML 5",
-  //   icon: html,
-  // },
-  // {
-  //   name: "CSS 3",
-  //   icon: css,
-  // },
+  {
+    name: "HTML 5",
+    icon: html,
+  },
+  {
+    name: "CSS 3",
+    icon: css,
+  },
   {
     name: "JavaScript",
     icon: javascript,
@@ -105,10 +105,10 @@ const technologies = [
     name: "github",
     icon: github,
   },
-  {
-    name: "figma",
-    icon: figma,
-  },
+  // {
+  //   name: "figma",
+  //   icon: figma,
+  // },
   {
     name: "Expo",
     icon: expo,
