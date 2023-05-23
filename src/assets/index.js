@@ -35,6 +35,8 @@ import emploi from "./company/emploi.png";
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+import movies from "./movies.png";
+import morning from "./morning.png";
 
 export {
   logoM,
@@ -71,4 +73,6 @@ export {
   expo,
   vitejs,
   nextjs,
+  morning,
+  movies,
 };

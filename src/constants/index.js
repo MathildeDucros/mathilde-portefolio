@@ -24,6 +24,8 @@ import {
   nextjs,
   expo,
   emploi,
+  morning,
+  movies,
 } from "../assets";
 
 export const navLinks = [
@@ -62,47 +64,47 @@ const services = [
 
 const technologies = [
   {
-    name: "HTML 5",
+    name: "HTML5",
     icon: html,
   },
   {
-    name: "CSS 3",
+    name: "CSS3",
     icon: css,
   },
   {
-    name: "JavaScript",
+    name: "JavaScript ",
     icon: javascript,
   },
   {
-    name: "TypeScript",
+    name: "TypeScript ",
     icon: typescript,
   },
   {
-    name: "ReactJS",
+    name: "ReactJS ",
     icon: reactjs,
   },
   {
-    name: "ReduxToolkit",
+    name: "ReduxToolkit ",
     icon: redux,
   },
   {
-    name: "TailwindCSS",
+    name: "TailwindCSS ",
     icon: tailwind,
   },
   {
-    name: "NodeJS",
+    name: "NodeJS ",
     icon: nodejs,
   },
   {
-    name: "MongoDB",
+    name: "MongoDB ",
     icon: mongodb,
   },
   {
-    name: "ThreeJS",
+    name: "ThreeJS ",
     icon: threejs,
   },
   {
-    name: "github",
+    name: "github ",
     icon: github,
   },
   // {
@@ -110,15 +112,15 @@ const technologies = [
   //   icon: figma,
   // },
   {
-    name: "Expo",
+    name: "Expo ",
     icon: expo,
   },
   {
-    name: "Vite",
+    name: "Vite ",
     icon: vitejs,
   },
   {
-    name: "NextJS.13",
+    name: "NextJS.13 ",
     icon: nextjs,
   },
 ];
@@ -278,6 +280,48 @@ const projects = [
     ],
     image: tripguide,
     source_code_link: "https://github.com/MathildeDucros/promptopia",
+  },
+  {
+    name: "MorningNews",
+    description:
+      "MorningNews est un site d’affichage des news récentes du journal The Verge. Vous pourrez également sauvegarder vos articles préférés et les retrouver en vous connectant à votre compte.",
+    tags: [
+      {
+        name: "MERN-stack",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Redux",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Projet Capsule",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: morning,
+    source_code_link: "https://github.com/MathildeDucros/morningnew-front",
+  },
+  {
+    name: "MyMoviz",
+    description:
+      "MyMoviz est un site qui va vous permettre d’afficher les derniers films sortis avec la possibilité de créer une wishlist, placer un compteur de vues et d’évaluer chacun des films présentés.",
+    tags: [
+      {
+        name: "MERN-stack",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "API",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Projet Capsule",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: movies,
+    source_code_link: "https://my-moviz-front-two.vercel.app",
   },
 ];
 
