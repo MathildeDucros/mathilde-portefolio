@@ -234,6 +234,7 @@ const projects = [
     ],
     image: carrent,
     source_code_link: "https://github.com/MathildeDucros/dalle-client",
+    web_link: "https://dalle-client-pink.vercel.app/",
   },
   {
     name: "Codex",
@@ -259,6 +260,7 @@ const projects = [
     ],
     image: jobit,
     source_code_link: "https://github.com/MathildeDucros/Open-AI",
+    web_link: "https://codex-ai-beige.vercel.app/",
   },
   {
     name: "Promptopia(work in progress)",
@@ -280,6 +282,7 @@ const projects = [
     ],
     image: tripguide,
     source_code_link: "https://github.com/MathildeDucros/promptopia",
+    web_link: "https://promptopia-red.vercel.app/",
   },
   {
     name: "MorningNews",
@@ -301,6 +304,7 @@ const projects = [
     ],
     image: morning,
     source_code_link: "https://github.com/MathildeDucros/morningnew-front",
+    web_link: "https://morningnew-front.vercel.app/",
   },
   {
     name: "MyMoviz",
@@ -321,7 +325,8 @@ const projects = [
       },
     ],
     image: movies,
-    source_code_link: "https://my-moviz-front-two.vercel.app",
+    source_code_link: "https://github.com/MathildeDucros/MyMovizFront",
+    web_link: "https://my-moviz-front-two.vercel.app/",
   },
 ];
 
