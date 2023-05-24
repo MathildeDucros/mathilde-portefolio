@@ -35,7 +35,7 @@ export const navLinks = [
   },
   {
     id: "work",
-    title: "Travails",
+    title: "Travail",
   },
   {
     id: "contact",
@@ -133,9 +133,11 @@ const experiences = [
     iconBg: "#383E56",
     date: "Janvier 2023 - Mars 2023",
     points: [
-      " Formation lors d'un BootCamp de 3 mois a l'issue de duquel j'ai obtenue mon certification professionnelle de Chef de projet, concepteur et développeur d'applications web et mobile de La Capsule (certifié RNCP - niveau 6), de niveau Bac +3/4.",
-      "Les competences aquises lors de cette formation sont les suivantes:  React Redux · Réact Native · Planification de sprint · Node.js · Mongoose(Logiciel) · Mockup · Jest (Framework de test Javascript) · Ingénierie logicielle Full Stack · Frameworks JavaScript · Express.js · Développement web · Conception de l'expérience utilisateur (UX) · Expo · User Story · React.js · MongoDB.",
-      "Durant cette formation nous avons développé 5 applications Web, 2 application mobile, nous effectué 2 hackatons, et réalisé un MVP, Com-et-Call une application mobile,  en utilisant les méthodologies agiles. ",
+      "Formation lors d'un BootCamp de 3 mois à l'issue de laquelle j'ai obtenu ma certification professionnelle de Chef de projet, concepteur et développeur d'applications web et mobile de La Capsule (certifié RNCP - niveau 6), équivalent à un niveau Bac +3/4.",
+
+      "Les compétences acquises lors de cette formation sont les suivantes : React, Redux, React Native, planification de sprint, Node.js, Mongoose, Mockup, Jest (framework de test JavaScript), ingénierie logicielle Full Stack, frameworks JavaScript, Express.js, développement web, conception de l'expérience utilisateur (UX), Expo, User Story, React.js et MongoDB.",
+
+      "Durant cette formation, nous avons développé 5 applications web, 2 applications mobiles, participé à 2 hackathons et réalisé un MVP nommé Com-et-Call, une application mobile, en utilisant les méthodologies agiles.",
     ],
   },
   {
@@ -145,8 +147,9 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "Avril 2023 - Aujourd'hui",
     points: [
-      "Je suis activement à la recherche d'un emploie, pour construir ma cariére, vers Limoges et ses environs.",
-      "Trés motivée, je saurai vite m'adapter à votre société!",
+      "Je suis activement à la recherche d'un emploi pour construire ma carrière vers Limoges et ses environs.",
+
+      "Très motivée, je saurai m'adapter rapidement à votre société !",
     ],
   },
 
@@ -209,7 +212,7 @@ const projects = [
   {
     name: "Dall-E",
     description:
-      "Clone de Dall-E, générateur d'image en utilisant une intelligence artificielle",
+      "Clone de Dall-E, générateur d'images en utilisant une intelligence artificielle",
     tags: [
       {
         name: "MERN-stack",
@@ -263,9 +266,9 @@ const projects = [
     web_link: "https://codex-ai-beige.vercel.app/",
   },
   {
-    name: "Promptopia(work in progress)",
+    name: "Promptopia (work in progress)",
     description:
-      "Mise en pratique de la dernière version de Next JS 13. Promptopia est similaire à Twitter, mais les utilisateurs y postent des promptes pour ChatGPT.",
+      "Mise en pratique de la dernière version de Next JS 13. Promptopia est similaire à Twitter, mais les utilisateurs y postent des prompts pour ChatGPT.",
     tags: [
       {
         name: "MERN-stack",

@@ -58,7 +58,7 @@ const Contact = () => {
       .then(
         () => {
           setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
+          alert("Merci. Je vous répondrai dès que possible.");
 
           setForm({
             name: "",
@@ -70,7 +70,7 @@ const Contact = () => {
           setLoading(false);
           console.error(error);
 
-          alert("Ahh, something went wrong. Please try again.");
+          alert("Ah, quelque chose s'est mal passé. Veuillez réessayer.");
         }
       );
   };
@@ -111,7 +111,7 @@ const Contact = () => {
               value={form.email}
               onChange={handleChange}
               autoComplete="email"
-              placeholder="Quel est votre adresse mail?"
+              placeholder="Quel est votre adresse mail ?"
               className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
             />
           </label>
@@ -123,7 +123,7 @@ const Contact = () => {
               value={form.message}
               onChange={handleChange}
               autoComplete="on"
-              placeholder="Que voulez-vous écrire?"
+              placeholder="Que voulez-vous écrire ?"
               className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
             />
           </label>
