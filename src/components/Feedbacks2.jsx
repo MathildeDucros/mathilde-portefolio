@@ -40,105 +40,105 @@ const FeedbackCard = () => {
   );
 };
 
-//modale
-// const FeedbackModal = ({ closeModal, submitFeedback }) => {
-//   const [testimonial, setTestimonial] = useState("");
-//   const [name, setName] = useState("");
-//   const [designation, setDesignation] = useState("");
-//   const [company, setCompany] = useState("");
+// modale;
+const FeedbackModal = ({ closeModal, submitFeedback }) => {
+  const [testimonial, setTestimonial] = useState("");
+  const [name, setName] = useState("");
+  const [designation, setDesignation] = useState("");
+  const [company, setCompany] = useState("");
 
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     const newFeedback = {
-//       testimonial,
-//       name,
-//       designation,
-//       company,
-//     };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newFeedback = {
+      testimonial,
+      name,
+      designation,
+      company,
+    };
 
-//     submitFeedback(newFeedback);
-//     closeModal();
-//   };
+    submitFeedback(newFeedback);
+    closeModal();
+  };
 
-//   return (
-//     <div className="fixed inset-0 flex justify-center items-center bg-gray-900 bg-opacity-75 z-50">
-//       <div className="bg-tertiary p-8 rounded-lg">
-//         <h2 className="text-xl font-bold mb-4 text-secondary">
-//           Ajouter un témoignage
-//         </h2>
-//         <form onSubmit={handleSubmit}>
-//           <div className="mb-4">
-//             <label htmlFor="testimonial" className="block mb-2">
-//               Commentaire
-//             </label>
-//             <textarea
-//               id="testimonial"
-//               value={testimonial}
-//               onChange={(e) => setTestimonial(e.target.value)}
-//               className="w-full p-2 border rounded"
-//               required
-//             ></textarea>
-//           </div>
-//           <div className="mb-4">
-//             <label htmlFor="name" className="block mb-2">
-//               Nom
-//             </label>
-//             <input
-//               type="text"
-//               id="name"
-//               value={name}
-//               onChange={(e) => setName(e.target.value)}
-//               className="w-full p-2 border rounded"
-//               required
-//             />
-//           </div>
-//           <div className="mb-4">
-//             <label htmlFor="designation" className="block mb-2">
-//               Désignation
-//             </label>
-//             <input
-//               type="text"
-//               id="designation"
-//               value={designation}
-//               onChange={(e) => setDesignation(e.target.value)}
-//               className="w-full p-2 border rounded"
-//               required
-//             />
-//           </div>
-//           <div className="mb-4">
-//             <label htmlFor="company" className="block mb-2">
-//               Entreprise
-//             </label>
-//             <input
-//               type="text"
-//               id="company"
-//               value={company}
-//               onChange={(e) => setCompany(e.target.value)}
-//               className="w-full p-2 border rounded"
-//               required
-//             />
-//           </div>
-//           <div className="flex justify-end">
-//             <button
-//               type="button"
-//               onClick={closeModal}
-//               className="mr-2 px-4 py-2 text-gray-600 rounded"
-//             >
-//               Annuler
-//             </button>
-//             <button
-//               type="submit"
-//               onClick={closeModal}
-//               className="px-4 py-2 bg-tertiary text-secondary rounded"
-//             >
-//               Soumettre
-//             </button>
-//           </div>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// };
+  return (
+    <div className="fixed inset-0 flex justify-center items-center bg-gray-900 bg-opacity-75 z-50">
+      <div className="bg-tertiary p-8 rounded-lg">
+        <h2 className="text-xl font-bold mb-4 text-secondary">
+          Ajouter un témoignage
+        </h2>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label htmlFor="testimonial" className="block mb-2">
+              Commentaire
+            </label>
+            <textarea
+              id="testimonial"
+              value={testimonial}
+              onChange={(e) => setTestimonial(e.target.value)}
+              className="w-full p-2 border rounded"
+              required
+            ></textarea>
+          </div>
+          <div className="mb-4">
+            <label htmlFor="name" className="block mb-2">
+              Nom
+            </label>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full p-2 border rounded"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="designation" className="block mb-2">
+              Désignation
+            </label>
+            <input
+              type="text"
+              id="designation"
+              value={designation}
+              onChange={(e) => setDesignation(e.target.value)}
+              className="w-full p-2 border rounded"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="company" className="block mb-2">
+              Entreprise
+            </label>
+            <input
+              type="text"
+              id="company"
+              value={company}
+              onChange={(e) => setCompany(e.target.value)}
+              className="w-full p-2 border rounded"
+              required
+            />
+          </div>
+          <div className="flex justify-end">
+            <button
+              type="button"
+              onClick={closeModal}
+              className="mr-2 px-4 py-2 text-gray-600 rounded"
+            >
+              Annuler
+            </button>
+            <button
+              type="submit"
+              onClick={closeModal}
+              className="px-4 py-2 bg-tertiary text-secondary rounded"
+            >
+              Soumettre
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
 
 const Feedbacks = () => {
   const dispatch = useDispatch();
