@@ -28,15 +28,15 @@ const FeedbackCard = ({
             <span className="blue-text-gradient">@</span> {name}
           </p>
           <p className="mt-1 text-secondary text-[12px]">
-            {designation} of {company}
+            {designation} à {company}
           </p>
         </div>
-
+        {/* 
         <img
           src={image}
           alt={`feedback_by-${name}`}
           className="w-10 h-10 rounded-full object-cover"
-        />
+        /> */}
       </div>
     </div>
   </motion.div>
@@ -46,7 +46,7 @@ const Feedbacks = () => {
   const [testimonials, setTestimonials] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000")
+    fetch("https://portfolio-testiminials.onrender.com/")
       .then((response) => response.json())
       .then((data) => setTestimonials(data))
       .catch((error) => console.log(error));
