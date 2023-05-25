@@ -46,8 +46,10 @@ const Feedbacks = () => {
   const [testimonials, setTestimonials] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
 
+  // const BACKEND_URL:"https://portfolio-testiminials.onrender.com/"
+
   useEffect(() => {
-    fetch("https://portfolio-testiminials.onrender.com/")
+    fetch("http://localhost:3000")
       .then((response) => response.json())
       .then((data) => setTestimonials(data))
       .catch((error) => console.log(error));
@@ -100,7 +102,7 @@ const FeedbackModal = ({ closeModal }) => {
   const [company, setCompany] = useState("");
 
   const handleSoumettre = () => {
-    fetch("https://portfolio-testiminials.onrender.com/", {
+    fetch("http://localhost:3000", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -116,9 +118,19 @@ const FeedbackModal = ({ closeModal }) => {
       .then((data) => {
         if (data.result) {
           closeModal();
-
-          // Traitement des données de réponse si nécessaire
           console.log("Réponse de la base de données :", data);
+          // Mettez à jour votre liste de témoignages localement (optionnel)
+          const newTestimonial = {
+            // _id: generateUniqueId(), // Générez un ID unique pour le nouveau témoignage
+            commentaire: testimonial,
+            name: name,
+            designation: designation,
+            company: company,
+          };
+          setTestimonials((prevTestimonials) => [
+            ...prevTestimonials,
+            newTestimonial,
+          ]);
         }
       })
       .catch((error) => {
