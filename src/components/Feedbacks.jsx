@@ -1,20 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 
-const FeedbackCard = ({
-  index,
-  testimonial,
-  name,
-  designation,
-  company,
-  // image,
-}) => (
+const FeedbackCard = ({ testimonial, name, designation, company }) => (
   <motion.div
-    variants={fadeIn("", "spring", index * 0.5, 0.75)}
+    variants={fadeIn("", "spring")}
     className="bg-black-200 p-10 rounded-3xl xs:w-[320px] w-full"
   >
     <p className="text-white font-black text-[48px]">"</p>
@@ -31,44 +24,77 @@ const FeedbackCard = ({
             {designation} à {company}
           </p>
         </div>
-        {/* 
-        <img
-          src={image}
-          alt={`feedback_by-${name}`}
-          className="w-10 h-10 rounded-full object-cover"
-        /> */}
       </div>
     </div>
   </motion.div>
 );
 
 const Feedbacks = () => {
-  const [testimonials, setTestimonials] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
-
-  // const BACKEND_URL:"https://portfolio-testimonials.onrender.com/"
+  const [testimonialText, setTestimonialText] = useState("");
+  const [name, setName] = useState("");
+  const [designation, setDesignation] = useState("");
+  const [company, setCompany] = useState("");
+  const [testimonialsData, setTestimonialsData] = useState([]);
 
   useEffect(() => {
-    fetch("https://portfolio-testimonials.onrender.com/")
-      .then((response) => response.json())
-      .then((data) => setTestimonials(data))
-      .catch((error) => console.log(error));
+    fetchTestimonials();
   }, []);
 
-  const renderedTestimonials = testimonials.map((testimonial, index) => (
-    <FeedbackCard
-      key={testimonial._id}
-      index={index}
-      testimonial={testimonial.commentaire}
-      name={testimonial.name}
-      designation={testimonial.designation}
-      company={testimonial.company}
-      // image={testimonial.image}
-    />
-  ));
+  const fetchTestimonials = () => {
+    fetch("http://localhost:3000")
+      .then((response) => response.json())
+      .then((data) => {
+        setTestimonialsData(data);
+      })
+      .catch((error) => {
+        console.error(
+          "Une erreur s'est produite lors de la récupération des témoignages :",
+          error
+        );
+      });
+  };
 
-  const openModal = () => {
+  const handleOpenModal = () => {
     setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newTestimonial = {
+      testimonial: testimonialText,
+      name: name,
+      designation: designation,
+      company: company,
+    };
+
+    fetch("http://localhost:3000", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newTestimonial),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setTestimonialsData([...testimonialsData, data]);
+        setModalOpen(false);
+        setTestimonialText("");
+        setName("");
+        setDesignation("");
+        setCompany("");
+      })
+      .catch((error) => {
+        console.error(
+          "Une erreur s'est produite lors de l'enregistrement du témoignage :",
+          error
+        );
+      });
   };
 
   return (
@@ -82,139 +108,98 @@ const Feedbacks = () => {
         </motion.div>
       </div>
       <div className={`-mt-20 pb-14 ${styles.paddingX} flex flex-wrap gap-7`}>
-        {renderedTestimonials}
-        <motion.button
-          onClick={openModal}
-          className="bg-secondary text-primary px-4 py-2 rounded-full hover:bg-opacity-90 transition-all duration-200 ease-in-out"
-        >
-          Ajouter un témoignage
-        </motion.button>
+        {testimonialsData.map((testimonial) => (
+          <FeedbackCard
+            key={testimonial._id}
+            testimonial={testimonial.testimonial}
+            name={testimonial.name}
+            designation={testimonial.designation}
+            company={testimonial.company}
+            image={testimonial.image}
+          />
+        ))}
       </div>
-      {modalOpen && <FeedbackModal closeModal={() => setModalOpen(false)} />}
-    </div>
-  );
-};
 
-const FeedbackModal = ({ closeModal }) => {
-  const [testimonial, setTestimonial] = useState("");
-  const [name, setName] = useState("");
-  const [designation, setDesignation] = useState("");
-  const [company, setCompany] = useState("");
-
-  const handleSoumettre = () => {
-    fetch("https://portfolio-testimonials.onrender.com/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: name,
-        commentaire: testimonial,
-        company: company,
-        designation: designation,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.result) {
-          closeModal();
-          console.log("Réponse de la base de données :", data);
-          // Mettez à jour votre liste de témoignages localement (optionnel)
-          const newTestimonial = {
-            // _id: generateUniqueId(), // Générez un ID unique pour le nouveau témoignage
-            commentaire: testimonial,
-            name: name,
-            designation: designation,
-            company: company,
-          };
-          setTestimonials((prevTestimonials) => [
-            ...prevTestimonials,
-            newTestimonial,
-          ]);
-        }
-      })
-      .catch((error) => {
-        // Gestion des erreurs
-        console.log("Erreur lors de l'enregistrement des données :", error);
-      });
-  };
-
-  return (
-    <div className="fixed inset-0 flex justify-center items-center bg-gray-900 bg-opacity-75 z-50">
-      <div className="bg-tertiary p-8 rounded-lg">
-        <h2 className="text-xl font-bold mb-4 text-secondary">
-          Ajouter un témoignage
-        </h2>
-        <form>
-          <div className="mb-4">
-            <label htmlFor="testimonial" className="block mb-2">
-              Commentaire
-            </label>
-            <textarea
-              id="testimonial"
-              value={testimonial}
-              onChange={(e) => setTestimonial(e.target.value)}
-              className="w-full p-2 border rounded"
-              required
-            ></textarea>
+      <button
+        onClick={handleOpenModal}
+        // className="flex items-center justify-center bg-secondary text-primary px-4 py-2 rounded-full mt-4 transition-all duration-200 ease-in-out"
+        className="flex items-center justify-center w-full bg-secondary text-primary px-4 py-2 rounded-full mt-4 transition-all duration-200 ease-in-out"
+      >
+        Donner son avis
+      </button>
+      {modalOpen && (
+        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-75">
+          <div className="bg-white p-8 rounded-md">
+            <h3 className="text-lg font-semibold mb-4">Donner votre avis</h3>
+            <form onSubmit={handleSubmit}>
+              <div className="mb-4">
+                <label htmlFor="name" className="block font-medium mb-1">
+                  Nom
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full p-2 border border-gray-300 rounded-md"
+                />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="testimonial" className="block font-medium mb-1">
+                  Témoignage
+                </label>
+                <textarea
+                  id="testimonial"
+                  value={testimonialText}
+                  onChange={(e) => setTestimonialText(e.target.value)}
+                  placeholder="Écrivez votre avis ici..."
+                  className="w-full p-2 border border-gray-300 rounded-md"
+                ></textarea>
+              </div>
+              <div className="mb-4">
+                <label htmlFor="designation" className="block font-medium mb-1">
+                  Désignation
+                </label>
+                <input
+                  type="text"
+                  id="designation"
+                  placeholder="Quel est votre emploie ?"
+                  value={designation}
+                  onChange={(e) => setDesignation(e.target.value)}
+                  className="w-full p-2 border border-gray-300 rounded-md"
+                />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="company" className="block font-medium mb-1">
+                  Société
+                </label>
+                <input
+                  type="text"
+                  id="company"
+                  value={company}
+                  onChange={(e) => setCompany(e.target.value)}
+                  className="w-full p-2 border border-gray-300 rounded-md"
+                />
+              </div>
+              <div className="flex justify-end">
+                <button
+                  type="button"
+                  onClick={handleCloseModal}
+                  className="mr-2 bg-gray-300 text-gray-800 px-4 py-2 rounded-md"
+                >
+                  Annuler
+                </button>
+                <button
+                  type="submit"
+                  className="bg-primary text-white px-4 py-2 rounded-md"
+                >
+                  Soumettre
+                </button>
+              </div>
+            </form>
           </div>
-          <div className="mb-4">
-            <label htmlFor="name" className="block mb-2">
-              Nom
-            </label>
-            <input
-              type="text"
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="w-full p-2 border rounded"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="designation" className="block mb-2">
-              Désignation
-            </label>
-            <input
-              type="text"
-              id="designation"
-              value={designation}
-              onChange={(e) => setDesignation(e.target.value)}
-              className="w-full p-2 border rounded"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="company" className="block mb-2">
-              Entreprise
-            </label>
-            <input
-              type="text"
-              id="company"
-              value={company}
-              onChange={(e) => setCompany(e.target.value)}
-              className="w-full p-2 border rounded"
-              required
-            />
-          </div>
-          <div className="flex justify-end">
-            <button
-              type="button"
-              onClick={closeModal}
-              className="mr-2 px-4 py-2 text-gray-600 rounded"
-            >
-              Annuler
-            </button>
-            <button
-              type="submit"
-              className="px-4 py-2 bg-tertiary text-secondary rounded"
-              onClick={handleSoumettre}
-            >
-              Soumettre
-            </button>
-          </div>
-        </form>
-      </div>
+        </div>
+      )}
     </div>
   );
 };
