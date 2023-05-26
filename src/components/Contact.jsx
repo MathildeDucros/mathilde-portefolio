@@ -92,7 +92,7 @@ const Contact = () => {
           className="mt-12 flex flex-col gap-8"
         >
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Votre Nom</span>
+            <span className="text-secondary font-medium mb-4">Votre Nom</span>
             <input
               type="text"
               name="name"
@@ -100,11 +100,11 @@ const Contact = () => {
               onChange={handleChange}
               autoComplete="name"
               placeholder="Quel est votre nom ? "
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              className="bg-tertiary py-4 px-6 placeholder:text-white text-white rounded-lg outline-none border-none font-medium"
             />
           </label>
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Votre Email</span>
+            <span className="text-secondary font-medium mb-4">Votre Email</span>
             <input
               type="email"
               name="email"
@@ -112,11 +112,13 @@ const Contact = () => {
               onChange={handleChange}
               autoComplete="email"
               placeholder="Quel est votre adresse mail ?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              className="bg-tertiary py-4 px-6 placeholder:text-white text-white rounded-lg outline-none border-none font-medium"
             />
           </label>
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Votre Message</span>
+            <span className="text-secondary font-medium mb-4">
+              Votre Message
+            </span>
             <textarea
               rows={7}
               name="message"
@@ -124,13 +126,13 @@ const Contact = () => {
               onChange={handleChange}
               autoComplete="on"
               placeholder="Que voulez-vous écrire ?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              className="bg-tertiary py-4 px-6 placeholder:text-white text-white rounded-lg outline-none border-none font-medium"
             />
           </label>
 
           <button
             type="submit"
-            className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
+            className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-secondary font-bold shadow-md shadow-primary"
           >
             {loading ? "Envoi en cours..." : "Envoyer"}
           </button>

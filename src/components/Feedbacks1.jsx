@@ -46,10 +46,10 @@ const Feedbacks = () => {
   const [testimonials, setTestimonials] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
 
-  // const BACKEND_URL:"https://portfolio-testimonials.onrender.com/"
+  // const BACKEND_URL:"https://portfolio-server-q50p.onrender.com/"
 
   useEffect(() => {
-    fetch("http://localhost:3000")
+    fetch("https://portfolio-server-q50p.onrender.com/")
       .then((response) => response.json())
       .then((data) => setTestimonials(data))
       .catch((error) => console.log(error));
@@ -111,7 +111,7 @@ const FeedbackModal = ({ closeModal, setTestimonials }) => {
   const [company, setCompany] = useState("");
 
   const handleSoumettre = () => {
-    fetch("http://localhost:3000", {
+    fetch("https://portfolio-server-q50p.onrender.com/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

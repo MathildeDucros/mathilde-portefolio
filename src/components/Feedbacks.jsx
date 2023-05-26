@@ -41,10 +41,10 @@ const Feedbacks = () => {
     fetchTestimonials();
   }, []);
 
-  //   const BACKEND_URL= "https://portfolio-testimonials.onrender.com"
+  //   const BACKEND_URL= "https://portfolio-server-q50p.onrender.com/"
 
   const fetchTestimonials = () => {
-    fetch("https://portfolio-testimonials.onrender.com")
+    fetch("https://portfolio-server-q50p.onrender.com/")
       .then((response) => response.json())
       .then((data) => {
         setTestimonialsData(data);
@@ -75,7 +75,7 @@ const Feedbacks = () => {
       company: company,
     };
 
-    fetch("https://portfolio-testimonials.onrender.com", {
+    fetch("https://portfolio-server-q50p.onrender.com/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -130,12 +130,14 @@ const Feedbacks = () => {
         Donner son avis
       </button>
       {modalOpen && (
-        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-75">
-          <div className="bg-white p-8 rounded-md">
-            <h3 className="text-lg font-semibold mb-4">Donner votre avis</h3>
+        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-75 ">
+          <div className="bg-tertiary p-8 rounded-lg w-96">
+            <h3 className="text-lg font-semibold mb-4 text-secondary">
+              Donner votre avis
+            </h3>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
-                <label htmlFor="name" className="block font-medium mb-1">
+                <label htmlFor="name" className="block font-medium mb-2">
                   Nom
                 </label>
                 <input
@@ -143,7 +145,7 @@ const Feedbacks = () => {
                   id="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full p-2 border border-gray-300 rounded-md"
+                  className="w-full p-2 border border-secondary  rounded-md"
                 />
               </div>
               <div className="mb-4">
@@ -155,7 +157,7 @@ const Feedbacks = () => {
                   value={testimonialText}
                   onChange={(e) => setTestimonialText(e.target.value)}
                   placeholder="Écrivez votre avis ici..."
-                  className="w-full p-2 border border-gray-300 rounded-md"
+                  className="w-full p-2 border border-secondary  rounded-md"
                 ></textarea>
               </div>
               <div className="mb-4">
@@ -168,7 +170,7 @@ const Feedbacks = () => {
                   placeholder="Quel est votre emploie ?"
                   value={designation}
                   onChange={(e) => setDesignation(e.target.value)}
-                  className="w-full p-2 border border-gray-300 rounded-md"
+                  className="w-full p-2 border border-secondary  rounded-md"
                 />
               </div>
               <div className="mb-4">
@@ -180,7 +182,7 @@ const Feedbacks = () => {
                   id="company"
                   value={company}
                   onChange={(e) => setCompany(e.target.value)}
-                  className="w-full p-2 border border-gray-300 rounded-md"
+                  className="w-full p-2 border border-secondary rounded-md"
                 />
               </div>
               <div className="flex justify-end">
@@ -193,7 +195,7 @@ const Feedbacks = () => {
                 </button>
                 <button
                   type="submit"
-                  className="bg-primary text-white px-4 py-2 rounded-md"
+                  className="bg-primary text-secondary px-4 py-2 rounded-md"
                 >
                   Soumettre
                 </button>
