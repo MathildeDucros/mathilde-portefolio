@@ -41,8 +41,10 @@ const Feedbacks = () => {
     fetchTestimonials();
   }, []);
 
+  //   const BACKEND_URL= "https://portfolio-testimonials.onrender.com"
+
   const fetchTestimonials = () => {
-    fetch("http://localhost:3000")
+    fetch("https://portfolio-testimonials.onrender.com")
       .then((response) => response.json())
       .then((data) => {
         setTestimonialsData(data);
@@ -73,7 +75,7 @@ const Feedbacks = () => {
       company: company,
     };
 
-    fetch("http://localhost:3000", {
+    fetch("https://portfolio-testimonials.onrender.com", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
