@@ -50,7 +50,7 @@ const About = () => {
       >
         Je suis une développeuse full{" "}
         <span className="text-[#cb716c]">MERN </span>
-        Stack passionnée par la création d'applications Web et Mobiles modernes
+        Stack passionnée par la création d'applications Web et Mobile modernes
         et réactives. Ma spécialité réside dans l'utilisation des technologies
         <span className="text-[#cb716c]"> M</span>ongoDB,
         <span className="text-[#cb716c]"> E</span>xpress.js,

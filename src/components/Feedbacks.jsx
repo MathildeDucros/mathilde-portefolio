@@ -162,12 +162,11 @@ const Feedbacks = () => {
               </div>
               <div className="mb-4">
                 <label htmlFor="designation" className="block font-medium mb-1">
-                  Désignation
+                  Profession
                 </label>
                 <input
                   type="text"
                   id="designation"
-                  placeholder="Quel est votre emploie ?"
                   value={designation}
                   onChange={(e) => setDesignation(e.target.value)}
                   className="w-full p-2 border border-secondary  rounded-md"

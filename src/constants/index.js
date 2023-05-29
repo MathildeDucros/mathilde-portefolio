@@ -147,7 +147,7 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "Avril 2023 - Aujourd'hui",
     points: [
-      "Je suis activement à la recherche d'un emploi pour construire ma carrière vers Limoges et ses environs.",
+      "Je suis activement à la recherche d'un emploi pour construire ma carrière à Limoges et ses environs.",
 
       "Très motivée, je saurai m'adapter rapidement à votre société !",
     ],

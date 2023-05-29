@@ -94,10 +94,10 @@ const Works = () => {
         >
           Les projets suivants mettent en valeur mes compétences et mon
           expérience à travers des exemples concrets de mon travail. Chaque
-          projet est brièvement décrit avec mes liens Github où vous y trouverez
-          un lien vers le site déployé. Ils reflètent ma capacité à résoudre des
-          problèmes complexes, à travailler avec différentes technologies et à
-          gérer efficacement des projets.
+          projet est brièvement décrit avec mes liens Github et les liens des
+          site. Ils reflètent ma capacité à résoudre des problèmes complexes, à
+          travailler avec différentes technologes et à gérer efficacement des
+          projets.
         </motion.p>
       </div>
 
