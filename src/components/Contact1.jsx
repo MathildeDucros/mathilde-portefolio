@@ -19,12 +19,6 @@ const Contact = () => {
     message: "",
   });
 
-  const [formErrors, setFormErrors] = useState({
-    nameError: "",
-    emailError: "",
-    messageError: "",
-  });
-
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -35,44 +29,22 @@ const Contact = () => {
       ...form,
       [name]: value,
     });
-
-    setFormErrors({
-      ...formErrors,
-      [`${name}Error`]: "",
-    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Validation des champs
-    let errors = {};
-
-    if (form.name.trim() === "") {
-      errors.nameError = "Veuillez saisir votre nom";
-    }
-
-    if (form.email.trim() === "") {
-      errors.emailError = "Veuillez saisir votre adresse e-mail";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      errors.emailError = "Veuillez saisir une adresse e-mail valide";
-    }
-
-    if (form.message.trim() === "") {
-      errors.messageError = "Veuillez saisir votre message";
-    }
-
-    if (Object.keys(errors).length > 0) {
-      setFormErrors(errors);
-      return;
-    }
-
     setLoading(true);
+
+    // template_dggfxbl
+    // service_3s2y7yv
+    // rUpx0gT9ZLDlt4Qx6
 
     emailjs
       .send(
         "service_3s2y7yv",
         "template_furrffq",
+        // import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+        // import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
         {
           from_name: form.name,
           to_name: "Mathilde Ducros",
@@ -81,6 +53,7 @@ const Contact = () => {
           message: form.message,
         },
         "rUpx0gT9ZLDlt4Qx6"
+        // import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
       )
       .then(
         () => {
@@ -129,9 +102,6 @@ const Contact = () => {
               placeholder="Quel est votre nom ? "
               className="bg-tertiary py-4 px-6 placeholder:text-white text-white rounded-lg outline-none border-none font-medium"
             />
-            {formErrors.nameError && (
-              <span className="text-red-500">{formErrors.nameError}</span>
-            )}
           </label>
           <label className="flex flex-col">
             <span className="text-secondary font-medium mb-4">Votre Email</span>
@@ -144,9 +114,6 @@ const Contact = () => {
               placeholder="Quel est votre adresse mail ?"
               className="bg-tertiary py-4 px-6 placeholder:text-white text-white rounded-lg outline-none border-none font-medium"
             />
-            {formErrors.emailError && (
-              <span className="text-red-500">{formErrors.emailError}</span>
-            )}
           </label>
           <label className="flex flex-col">
             <span className="text-secondary font-medium mb-4">
@@ -161,9 +128,6 @@ const Contact = () => {
               placeholder="Que voulez-vous écrire ?"
               className="bg-tertiary py-4 px-6 placeholder:text-white text-white rounded-lg outline-none border-none font-medium"
             />
-            {formErrors.messageError && (
-              <span className="text-red-500">{formErrors.messageError}</span>
-            )}
           </label>
 
           <button
